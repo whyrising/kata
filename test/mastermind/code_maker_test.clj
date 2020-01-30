@@ -14,4 +14,10 @@
 
   (fact
     "score guess with two :pos match"
-    (score [0 0 0 0] [0 1 1 0]) => [2]))
+    (score [0 0 0 0] [0 1 1 0]) => [2])
+
+  (fact
+    "score guess with many position matches"
+    (score [0 0 0 0] [0 1 0 0]) => [3]
+    (score [0 0 0 0] [1 0 0 0]) => [3]
+    (score [0 0 0 0] [0 0 0 0]) => [4]))
