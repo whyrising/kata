@@ -3,7 +3,7 @@
             [mastermind.code-maker :refer :all]))
 
 (facts
-  "Code Maker"
+  "Scoring Position Matches"
   (fact
     "score guess with no matches"
     (score [0 0 0 0] [1 1 1 1]) => [0 0])
