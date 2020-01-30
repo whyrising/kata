@@ -11,4 +11,7 @@
   (fact
     "score guess with one :pos match"
     (score [0 0 0 0] [0 1 1 1]) => [:pos])
-  )
+
+  (fact
+    "score guess with two :pos match"
+    (score [0 0 0 0] [0 1 1 0]) => [:pos :pos]))
