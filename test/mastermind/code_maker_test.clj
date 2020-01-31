@@ -23,7 +23,8 @@
     (score [0 0 0 0] [0 0 0 0]) => [4 0]))
 
 (facts
-  "Scoring Value Matches"
+  "Scoring Value Matches. Matches that have the right value, but are in the
+  wrong position"
   (fact
-    "score guess with one value match and no pos match"
+    "value matches"
     (score [1 2 3 4] [2 0 0 0]) => [0 1]))
