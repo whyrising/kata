@@ -21,3 +21,9 @@
     (score [0 0 0 0] [0 1 0 0]) => [3 0]
     (score [0 0 0 0] [1 0 0 0]) => [3 0]
     (score [0 0 0 0] [0 0 0 0]) => [4 0]))
+
+(facts
+  "Scoring Value Matches"
+  (fact
+    "score guess with one value match and no pos match"
+    (score [1 2 3 4] [2 0 0 0]) => [0 1]))
