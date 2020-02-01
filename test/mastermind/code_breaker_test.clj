@@ -15,5 +15,16 @@
     (guess-to-base10-num [5 5 5 5]) => 1295)
 
   (fact
+    "convert a base 10 number to a, base 6, 4 digits, number guess)"
+    (base10-num-to-guess 0) => [0 0 0 0]
+    (base10-num-to-guess 4) => [0 0 0 4]
+    (base10-num-to-guess 6) => [0 0 1 0]
+    (base10-num-to-guess 7) => [0 0 1 1]
+    (base10-num-to-guess 43) => [0 1 1 1]
+    (base10-num-to-guess 259) => [1 1 1 1]
+    (base10-num-to-guess 1295) => [5 5 5 5]
+    )
+
+  (fact
     "initial guess"
     (break-code []) => [0 0 0 0]))
