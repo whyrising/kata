@@ -31,13 +31,15 @@
        inc
        base10-num-to-guess))
 
+(defn and-booleans [bool-list]
+  (every? identity bool-list))
+
 (defn master-code? [code game-history]
-  (every?
-    identity (for [guess-score game-history]
-               (let [guess (first guess-score)
-                     score (second guess-score)]
-                 (= (code-maker/score code guess)
-                    score)))))
+  (and-booleans
+    (for [guess-score game-history]
+      (let [guess (first guess-score) score (second guess-score)]
+        (= (code-maker/score code guess)
+           score)))))
 
 (defn next-guess [last-guess game-history]
   (loop [code (inc-guess last-guess)]
