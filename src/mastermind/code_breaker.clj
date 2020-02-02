@@ -34,8 +34,14 @@
 (defn next-guess [last-guess game-history]
   (let [last-score (second (first game-history))]
     (loop [guess (inc-guess last-guess)]
-      (if (= (code-maker/score guess last-guess) last-score)
+      (cond
+        (= (code-maker/score guess last-guess) last-score)
         guess
+
+        (= guess [5 5 5 5])
+        :next-number-out-of-range
+
+        :else
         (recur (inc-guess guess))))))
 
 (defn break-code [last-guess game-history]
