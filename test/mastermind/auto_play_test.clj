@@ -16,4 +16,9 @@
   (fact
     "When code is [0 0 0 1], should take 2 tries."
     (auto-play) => 2
-    (provided (random-code) => [0 0 0 1])))
+    (provided (random-code) => [0 0 0 1]))
+
+  (fact
+    "When code is [0 0 1 0], should take 3 tries."
+    (auto-play) => 3
+    (provided (random-code) => [0 0 1 0])))
