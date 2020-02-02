@@ -35,11 +35,12 @@
   (let [last-score (second (first game-history))]
     (loop [guess (inc-guess last-guess)]
       (cond
-        (= (code-maker/score guess last-guess) last-score)
+        (= (code-maker/score guess last-guess)
+           last-score)
         guess
 
         (= guess [5 5 5 5])
-        :next-number-out-of-range
+        :next-guess-out-of-range
 
         :else
         (recur (inc-guess guess))))))
