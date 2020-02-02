@@ -31,11 +31,14 @@
        inc
        base10-num-to-guess))
 
+(defn next-guess [last-guess game-history]
+  (let [last-score (second (first game-history))]
+    (loop [guess (inc-guess last-guess)]
+      (if (= (code-maker/score guess last-guess) last-score)
+        guess
+        (recur (inc-guess guess))))))
+
 (defn break-code [last-guess game-history]
   (if (nil? last-guess)
     [0 0 0 0]
-    (loop [guess (inc-guess last-guess)]
-      (if (= (code-maker/score guess (first (first game-history)))
-             (second (first game-history)))
-        guess
-        (recur (inc-guess guess))))))
+    (next-guess last-guess game-history)))
