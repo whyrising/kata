@@ -32,5 +32,12 @@
     (base10-num-to-guess 1295) => [5 5 5 5])
 
   (fact
+    "increment guess"
+    (inc-guess [0 0 0 0]) => [0 0 0 1]
+    (inc-guess [0 0 0 5]) => [0 0 1 0]
+    (inc-guess [0 0 5 5]) => [0 1 0 0]
+    (inc-guess [0 5 5 5]) => [1 0 0 0])
+
+  (fact
     "initial guess"
     (break-code []) => [0 0 0 0]))

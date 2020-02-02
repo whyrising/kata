@@ -12,7 +12,6 @@
         [(rem dividend base6-divisor) guess]
         (dec digits)))))
 
-
 (defn throw-big-number-exception [number]
   (throw
     (RuntimeException.
@@ -24,6 +23,12 @@
 
     (flatten
       (base10-num-to-guess-iter number [] 4))))
+
+(defn inc-guess [guess]
+  (->> guess
+       guess-to-base10-num
+       inc
+       base10-num-to-guess))
 
 (defn break-code [past-guesses]
   [0 0 0 0])
