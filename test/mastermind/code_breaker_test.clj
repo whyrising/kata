@@ -15,11 +15,8 @@
     (guess-to-base10-num [5 5 5 5]) => 1295)
 
   (fact
-    "should throw RuntimeException: number is bigger than 4 digits"
-    (base10-num-to-guess 1296) => (throws
-                                    RuntimeException
-                                    (str "The given number '1296' is bigger "
-                                         "than 1295")))
+    "when number is bigger than 4 digits, return :next-guess-out-of-range"
+    (base10-num-to-guess (* 6 6 6 6)) => :guess-out-of-range)
 
   (fact
     "convert a base 10 number to a, base 6, 4 digits, number guess)"

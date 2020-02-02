@@ -19,8 +19,8 @@
       (str "The given number '" number "' is bigger than 1295"))))
 
 (defn base10-num-to-guess [number]
-  (if (> number 1295)
-    (throw-big-number-exception number)
+  (if (= number (* 6 6 6 6))
+    :guess-out-of-range
 
     (flatten
       (base10-num-to-guess-iter number [] 4))))
