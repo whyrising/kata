@@ -43,14 +43,8 @@
 
 (defn next-guess [starting-guess game-history]
   (loop [code starting-guess]
-    (cond
-      (master-code? code game-history)
+    (if (master-code? code game-history)
       code
-
-      (= code [5 5 5 5])
-      :next-guess-out-of-range
-
-      :else
       (recur (inc-guess code)))))
 
 (defn break-code [starting-guess game-history]
