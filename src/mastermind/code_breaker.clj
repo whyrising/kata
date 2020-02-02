@@ -12,9 +12,18 @@
         [(rem dividend base6-divisor) guess]
         (dec digits)))))
 
+
+(defn throw-big-number-exception [number]
+  (throw
+    (RuntimeException.
+      (str "The given number '" number "' is bigger than 1295"))))
+
 (defn base10-num-to-guess [number]
-  (flatten
-    (base10-num-to-guess-iter number [] 4)))
+  (if (> number 1295)
+    (throw-big-number-exception number)
+
+    (flatten
+      (base10-num-to-guess-iter number [] 4))))
 
 (defn break-code [past-guesses]
   [0 0 0 0])

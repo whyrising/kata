@@ -15,6 +15,13 @@
     (guess-to-base10-num [5 5 5 5]) => 1295)
 
   (fact
+    "should throw RuntimeException: number is bigger than 4 digits"
+    (base10-num-to-guess 1296) => (throws
+                                    RuntimeException
+                                    (str "The given number '1296' is bigger "
+                                         "than 1295")))
+
+  (fact
     "convert a base 10 number to a, base 6, 4 digits, number guess)"
     (base10-num-to-guess 0) => [0 0 0 0]
     (base10-num-to-guess 4) => [0 0 0 4]
@@ -22,8 +29,7 @@
     (base10-num-to-guess 7) => [0 0 1 1]
     (base10-num-to-guess 43) => [0 1 1 1]
     (base10-num-to-guess 259) => [1 1 1 1]
-    (base10-num-to-guess 1295) => [5 5 5 5]
-    )
+    (base10-num-to-guess 1295) => [5 5 5 5])
 
   (fact
     "initial guess"
