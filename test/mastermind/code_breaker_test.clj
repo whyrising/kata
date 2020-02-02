@@ -50,4 +50,16 @@
   (fact
     "first step for code [0 0 0 1]"
     (break-code [0 0 0 0]
-                [[[0 0 0 0] [3 0]]]) => [0 0 0 1]))
+                [[[0 0 0 0] [3 0]]]) => [0 0 0 1])
+
+  (fact
+    "second step for code [0 0 1 0]"
+    (break-code [0 0 0 1]
+                [[[0 0 0 1] [2 2]]]) => [0 0 1 0])
+
+  (fact
+    "two steps are required for [0 0 1 0]"
+    (break-code [0 0 0 0]
+                [[[0 0 0 0] [3 0]]
+                 [[0 0 0 1] [2 2]]]) => [0 0 1 0])
+  )

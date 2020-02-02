@@ -35,8 +35,9 @@
   (let [last-score (second (first game-history))]
     (loop [guess (inc-guess last-guess)]
       (cond
-        (= (code-maker/score guess last-guess)
-           last-score)
+        (every? identity (map
+          #(= (code-maker/score guess (first %1)) (second %1))
+          game-history))
         guess
 
         (= guess [5 5 5 5])
