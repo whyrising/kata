@@ -12,3 +12,8 @@
     (provided (random-code) => [0 0 0 0],
               (code-maker/score [0 0 0 0] [0 0 0 0]) => [4 0],
               (code-breaker/break-code nil []) => [0 0 0 0]))
+
+  (fact
+    "When code is [0 0 0 1], should take 2 tries."
+    (auto-play) => 2
+    (provided (random-code) => [0 0 0 1])))
