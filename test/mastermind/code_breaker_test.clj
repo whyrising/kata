@@ -40,4 +40,14 @@
 
   (fact
     "initial guess"
-    (break-code []) => [0 0 0 0]))
+    (break-code nil []) => [0 0 0 0])
+
+  (fact
+    "first step for code [1 2 3 4]"
+    (break-code [0 0 0 0]
+                [[[0 0 0 0] [0 0]]]) => [1 1 1 1])
+
+  (fact
+    "first step for code [0 0 0 1]"
+    (break-code [0 0 0 0]
+                [[[0 0 0 0] [3 0]]]) => [0 0 0 1]))
