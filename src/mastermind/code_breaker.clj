@@ -41,8 +41,8 @@
         (= (code-maker/score code guess)
            score)))))
 
-(defn next-guess [last-guess game-history]
-  (loop [code (inc-guess last-guess)]
+(defn next-guess [starting-guess game-history]
+  (loop [code starting-guess]
     (cond
       (master-code? code game-history)
       code
@@ -53,7 +53,7 @@
       :else
       (recur (inc-guess code)))))
 
-(defn break-code [initial-guess game-history]
-  (if (nil? initial-guess)
+(defn break-code [starting-guess game-history]
+  (if (nil? starting-guess)
     [0 0 0 0]
-    (next-guess initial-guess game-history)))
+    (next-guess starting-guess game-history)))
