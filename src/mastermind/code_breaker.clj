@@ -53,7 +53,7 @@
       :else
       (recur (inc-guess code)))))
 
-(defn break-code [last-guess game-history]
-  (if (nil? last-guess)
+(defn break-code [initial-guess game-history]
+  (if (nil? initial-guess)
     [0 0 0 0]
-    (next-guess last-guess game-history)))
+    (next-guess initial-guess game-history)))
