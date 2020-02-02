@@ -31,20 +31,25 @@
        inc
        base10-num-to-guess))
 
+(defn master-code? [code game-history]
+  (every?
+    identity (for [guess-score game-history]
+               (let [guess (first guess-score)
+                     score (second guess-score)]
+                 (= (code-maker/score code guess)
+                    score)))))
+
 (defn next-guess [last-guess game-history]
-  (let [last-score (second (first game-history))]
-    (loop [guess (inc-guess last-guess)]
-      (cond
-        (every? identity (map
-          #(= (code-maker/score guess (first %1)) (second %1))
-          game-history))
-        guess
+  (loop [code (inc-guess last-guess)]
+    (cond
+      (master-code? code game-history)
+      code
 
-        (= guess [5 5 5 5])
-        :next-guess-out-of-range
+      (= code [5 5 5 5])
+      :next-guess-out-of-range
 
-        :else
-        (recur (inc-guess guess))))))
+      :else
+      (recur (inc-guess code)))))
 
 (defn break-code [last-guess game-history]
   (if (nil? last-guess)
